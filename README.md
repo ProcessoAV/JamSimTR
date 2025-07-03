@@ -1,50 +1,37 @@
-# JamSimTR - Jamming Simulator (Tecnologia de Redes)
+Comecei o projeto no windows mesmo, ao baixar a IDE e instalar consegui rodar omnepp no terminal, acho que você não está atualizado o suficiente sobre o assunto...
+Eu consegui instalar seguindo esses passos que registrei no meu README.md:
 
----
+## Instalações no Windows
 
-## 🧱 Como funciona a pilha no OMNeT++
+OBS: Lembrar de instalar num workspace (a IDE é como o Eclipse) em uma pasta diferente do projeto no git para não pesar
 
-| Camada          | O que faz                           | Exemplo no ecossistema OMNeT++                  |
-| --------------- | ----------------------------------- | ----------------------------------------------- |
-| **Engine base** | Simulador de eventos                | **OMNeT++**                                     |
-| **Protocolos**  | Modelos de redes reais              | **INET** para Wi‑Fi, TCP/IP, Ethernet, ZigBee…  |
-| **IoT/LoRa**    | Modelos específicos                 | **FLoRa** (LoRaWAN), **Castalia** (sensor nets) |
-| **Extensões**   | Coisas como jamming, rádio realista | Parte do INET ou adicionadas por você           |
+OMNET++ - deve ser extraído em uma pasta com o path/caminho SEM espaços
+https://omnetpp.org/download/ 
 
----
+Após o download e extração do zip, no arquivo INSTALL.md diz para executarmos (cliquar) no mingwenv.cmd e depois rodar alguns comandos:
+"...
+For Windows
+-----------
 
-## 🔗 Então o que é cada componente?
+Begin by executing the `mingwenv.cmd` command. In the terminal
+window that opens, run the following commands:
 
-### ✅ **OMNeT++**
+    $ ./configure
+    $ make -j16
 
-* Núcleo do simulador: engine de eventos + IDE + visualização.
-* Permite definir topologias, eventos, módulos, mas **não vem com Wi-Fi, LoRa ou redes reais prontas**.
+[!NOTE] The `mingwenv.cmd` command automatically installs all
+required dependencies and then executes the `source setenv` command.
+You can adjust the `-j16` parameter to match the number of cores on your
+machine for optimized performance.
+..."
 
-### ✅ **INET Framework**
+usar omnetpp para abrir a IDE - normalmente baixa o INET automaticamente quando entra pela primeira vez 
 
-* Biblioteca essencial.
-* Adiciona:
 
-  * 📶 Wi-Fi (802.11a/b/g/n/ac)
-  * 🌐 TCP/IP, UDP, IPv4/IPv6, Ethernet
-  * 📡 Zigbee (IEEE 802.15.4)
-  * 📊 Camadas de aplicação (VoIP, FTP, HTTP, etc.)
-  * 📟 Rádio realista, ruído, mobilidade, interferência
-* É **mantido ativamente**, super necessário para qualquer rede moderna.
+## Stack
 
-### ✅ **FLoRa**
+OMNET (OMNeT++ 6.1.0 - 2024-10-09): simulador/engine de redes
 
-* Framework que adiciona **LoRaWAN** ao OMNeT++.
-* Modela gateways, dispositivos, ADR, energia, MAC uplink/downlink, etc.
-* **Se integra ao INET** (usa a física de rádio do INET).
-* Código: [https://github.com/signetlabdei/FLORA](https://github.com/signetlabdei/FLORA)
+INET framework (4.5.4 - 2024-10-29): Biblioteca básica, o INET suporta o Wi-Fi, Zigbee, Jamming
 
----
-
-## 📦 Resumo de como montar seu ambiente
-
-| Componente       | Versão sugerida                      | Link                                                                             |
-| ---------------- | ------------------------------------ | -------------------------------------------------------------------------------- |
-| OMNeT++          | 6.0 ou 5.6.2                         | [https://omnetpp.org/](https://omnetpp.org/)                                     |
-| INET Framework   | compatível com sua versão do OMNeT++ | [https://github.com/inet-framework/inet](https://github.com/inet-framework/inet) |
-| FLoRa            | Última versão (integra com INET)     | [https://github.com/signetlabdei/FLORA](https://github.com/signetlabdei/FLORA)   |
+Flora: Adiciona o Lora

@@ -30,3 +30,46 @@
 *.exe
 *.out
 *.app
+/.metadata/
+.metadata
+
+# -------------------------------------- GPT
+
+# Ignorar pastas e arquivos gerados
+/results/
+/out/
+*.vec
+*.sca
+*.vci
+*.cpt
+*.elog
+*.log
+*.bak
+*.swp
+*.o
+*.so
+*.a
+*.d
+
+# Ignorar configurações da IDE
+*.oppbak
+*.oppmsg
+*.oppout
+*.oppjobs
+*.launch
+*.userprefs
+*.pyc
+*.class
+
+# Ignorar builds e backups temporários
+Makefile
+Makefile.inc
+.depend
+*.obj
+*.exe
+*.dll
+*.pdb
+
+# Ignorar INET ou FLoRa se estiverem dentro
+inet/
+FLORA/

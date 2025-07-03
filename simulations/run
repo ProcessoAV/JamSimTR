@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/projeto_protocols_sim -n .:../src $*
+# for shared lib, use: opp_run -l ../src/projeto_protocols_sim -n .:../src $*
