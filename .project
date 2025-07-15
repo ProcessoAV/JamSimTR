@@ -3,6 +3,7 @@
 	<name>projeto-protocols-sim</name>
 	<comment></comment>
 	<projects>
+		<project>inet4.4</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

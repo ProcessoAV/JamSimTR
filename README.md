@@ -28,6 +28,31 @@ machine for optimized performance.
 usar omnetpp para abrir a IDE - normalmente baixa o INET automaticamente quando entra pela primeira vez 
 
 
+só pega com linux->
+instalações com mais facilidade:
+https://omnetpp.org/opp_env
+
+para instalar o flora:
+opp_env install flora-latest
+
+baixar flora seguindo o site:
+https://flora.aalto.fi/howto/installation/
+
+
+o flora ao ser buildado vai fazer referencia ao 4.4, mas automaticamente foi baixado o inet 4.5 acima...
+
+vá em
+flora/.oppbuildspec
+altere <project id="inet" version="4.4" />
+para <project id="inet" version="4.5" />
+e onde tiver mais 4.0 para 4.5
+
+Botão direito no projeto flora > Properties
+
+Vá em OMNeT++ > Makemake
+
+Clique em OK (para regenerar o Makefile)
+
 ## Stack
 
 OMNET (OMNeT++ 6.1.0 - 2024-10-09): simulador/engine de redes
