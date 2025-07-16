@@ -1,9 +1,11 @@
+// C:\projects\TR\projeto\src\WifiJammingNetwork.ned
 package projeto_protocols_sim;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.networklayer.diffserv.MultiFieldClassifier;
-import inet.node.inet.StandardHost;
+// import inet.node.inet.StandardHost;
 import inet.physicallayer.wireless.common.medium.RadioMedium;
+import inet.node.inet.WirelessHost;
 
 
 network WifiJammingNetwork
@@ -18,12 +20,12 @@ network WifiJammingNetwork
             @display("p=100,100");
         }
 
-        sender: StandardHost {
+        sender: WirelessHost {
             @display("p=100,250");
             @labels("node");
         }
 
-        receiver: StandardHost {
+        receiver: WirelessHost {
             @display("p=300,250");
             @labels("node");
         }
