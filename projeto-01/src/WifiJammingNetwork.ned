@@ -17,21 +17,22 @@ network WifiJammingNetwork
         }
 
         configurator: Ipv4NetworkConfigurator {
-            @display("p=100,100");
+            @display("p=26,23");
         }
 
         sender: WirelessHost {
-            @display("p=100,250");
+            @display("p=172,182");
             @labels("node");
         }
 
         receiver: WirelessHost {
-            @display("p=300,250");
+            @display("p=472,182");
             @labels("node");
         }
-        
+
         jammer: WirelessHost {
-            @display("p=200,150");
+            @display("p=330,126");
             @labels("node");
         }
+
 }
