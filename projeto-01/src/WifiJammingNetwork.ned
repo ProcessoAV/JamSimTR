@@ -6,6 +6,7 @@ import inet.networklayer.diffserv.MultiFieldClassifier;
 // import inet.node.inet.StandardHost;
 import inet.physicallayer.wireless.common.medium.RadioMedium;
 import inet.node.inet.WirelessHost;
+import inet.physicallayer.wireless.noise.NoiseSource;
 
 
 network WifiJammingNetwork
@@ -30,9 +31,7 @@ network WifiJammingNetwork
             @labels("node");
         }
 
-        jammer: WirelessHost {
-            @display("p=330,126");
-            @labels("node");
+        jammer: NoiseSource {
+            @display("p=320,102");
         }
-
 }
