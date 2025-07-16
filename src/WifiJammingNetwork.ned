@@ -30,8 +30,8 @@ network WifiJammingNetwork
             @labels("node");
         }
         
-       // jammer: StandardHost {
-        //    @display("p=200,150");
-        //    @labels("node");
-        //}
+        jammer: WirelessHost {
+            @display("p=200,150");
+            @labels("node");
+        }
 }
