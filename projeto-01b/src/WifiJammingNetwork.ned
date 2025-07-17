@@ -31,7 +31,7 @@ network WifiJammingNetwork
             @labels("node");
         }
 
-        jammer: NoiseSource {
-            @display("p=320,102");
-        }
+      //  jammer: NoiseSource {
+       //     @display("p=320,102");
+       // }
 }

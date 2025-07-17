@@ -1,0 +1,3167 @@
+version 3
+run General-0-20250717-15:55:48-17056
+attr configname General
+attr datetime 20250717-15:55:48
+attr datetimef 20250717-155548
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network src.WifiJammingNetwork
+attr processid 17056
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../workspace/inet4.4/images
+config network src.WifiJammingNetwork
+config sim-time-limit 3s
+config output-scalar-file results.sca
+config output-vector-file results.vec
+config record-eventlog true
+config *.sender.wlan[0].mac.autoStart true
+config *.receiver.wlan[0].mac.autoStart true
+config *.receiver.app[0].startTime 0s
+config *.configurator.typename Ipv4NetworkConfigurator
+config *.configurator.addStaticRoutes true
+config *.configurator.addDefaultRoutes true
+config *.configurator.assignDisjunctSubnetAddresses true
+config *.configurator.optimizeRoutes true
+config *.configurator.verbose true
+config *.**.routingTable.printRoutingTable true
+config *.configurator.printAddresses true
+config *.configurator.ignoreModuleNames "\"**.receiver\""
+config *.receiver.hasIpv4 true
+config *.receiver.wlan[0].ipv4.address "\"10.0.0.2\""
+config *.receiver.wlan[0].ipv4.netmask "\"255.255.255.0\""
+config *.receiver.app[0].typename UdpSink
+config *.receiver.app[0].localPort 8080
+config *.sender.numApps 1
+config *.sender.app[0].typename UdpBasicApp
+config *.sender.app[0].destAddresses "\"10.0.0.2\""
+config *.sender.app[0].destPort 8080
+config *.sender.app[0].messageLength 1000B
+config *.sender.app[0].sendInterval 0.1s
+config *.sender.app[0].startTime 0.08s
+config *.sender.app[0].stopTime 1.9s
+config *.sender.numWlanInterfaces 1
+config *.receiver.numWlanInterfaces 1
+config *.**.wlan[0].radio.transmitter.power 200mW
+config *.**.wlan[0].radio.receiver.sensitivity -85dBm
+config *.**.wlan[0].mac.ssid "\"testwifi\""
+config *.**.wlan[0].mac.useAck true
+config *.**.wlan[0].radio.mediumModule "\"^.radioMedium\""
+config **.wlan[0].radio.displayCommunicationRange true
+config *.visualizer.*.mediumVisualizer.displaySignals true
+config *.visualizer.*.mediumVisualizer.signalPropagationAnimation true
+config *.visualizer.*.mediumVisualizer.packetAnimation true
+config *.visualizer.*.mediumVisualizer.displayCommunicationRanges true
+config *.visualizer.*.mediumVisualizer.displayNoise true
+config **.radio.interferenceNoisePower.vector-recording true
+config *.radioMedium.backgroundNoise.power -110dBm
+config *.radioMedium.typename DimensionalRadioMedium
+config *.radioMedium.maxTransmissionDuration 2s
+config *.**.ipv4.arp.typename GlobalArp
+config *.**.routingTable.typename Ipv4RoutingTable
+config **.udpBasicApp.packetSent.vector-recording true
+config **.udpSink.packetReceived.vector-recording true
+config **.udpSink.packetLost.vector-recording true
+config **.udpSink.packetReceived.scalar-recording true
+config **.udpBasicApp.packetSent.scalar-recording true
+config **.udpBasicApp.recordStatistics true
+config **.udpSink.recordStatistics true
+
+par WifiJammingNetwork.radioMedium.propagation typename "\"inet.physicallayer.wireless.common.propagation.ConstantSpeedPropagation\""
+par WifiJammingNetwork.radioMedium.propagation propagationSpeed 2.99792e+08mps
+attr unit mps
+par WifiJammingNetwork.radioMedium.propagation ignoreMovementDuringTransmission true
+par WifiJammingNetwork.radioMedium.propagation ignoreMovementDuringPropagation true
+par WifiJammingNetwork.radioMedium.propagation ignoreMovementDuringReception true
+scalar WifiJammingNetwork.radioMedium.propagation "Arrival computation count" 2
+par WifiJammingNetwork.radioMedium.analogModel typename "\"inet.physicallayer.wireless.common.analogmodel.packetlevel.ScalarAnalogModel\""
+par WifiJammingNetwork.radioMedium.analogModel ignorePartialInterference false
+par WifiJammingNetwork.radioMedium.backgroundNoise typename "\"inet.physicallayer.wireless.common.backgroundnoise.IsotropicScalarBackgroundNoise\""
+par WifiJammingNetwork.radioMedium.backgroundNoise power -110dBm
+attr unit dBm
+par WifiJammingNetwork.radioMedium.backgroundNoise bandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.radioMedium.pathLoss typename "\"inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss\""
+par WifiJammingNetwork.radioMedium.pathLoss alpha 2
+par WifiJammingNetwork.radioMedium.pathLoss systemLoss 0dB
+attr unit dB
+par WifiJammingNetwork.radioMedium.mediumLimitCache typename "\"inet.physicallayer.wireless.common.medium.MediumLimitCache\""
+par WifiJammingNetwork.radioMedium.mediumLimitCache centerFrequency "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxSpeed "nan mps"
+attr unit mps
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxTransmissionPower "nan W"
+attr unit W
+par WifiJammingNetwork.radioMedium.mediumLimitCache minInterferencePower "nan dBm"
+attr unit dBm
+par WifiJammingNetwork.radioMedium.mediumLimitCache minReceptionPower "nan dBm"
+attr unit dBm
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxAntennaGain 0dB
+attr unit dB
+par WifiJammingNetwork.radioMedium.mediumLimitCache minInterferenceTime 1e-12s
+attr unit s
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxTransmissionDuration 0.01s
+attr unit s
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxCommunicationRange "nan m"
+attr unit m
+par WifiJammingNetwork.radioMedium.mediumLimitCache maxInterferenceRange "nan m"
+attr unit m
+par WifiJammingNetwork.radioMedium.communicationCache typename "\"inet.physicallayer.wireless.common.communicationcache.VectorCommunicationCache\""
+par WifiJammingNetwork.radioMedium typename "\"inet.physicallayer.wireless.common.medium.RadioMedium\""
+par WifiJammingNetwork.radioMedium physicalEnvironmentModule "\"physicalEnvironment\""
+par WifiJammingNetwork.radioMedium signalAnalogRepresentation "\"scalar\""
+attr enum unitDisk,scalar,dimensional
+par WifiJammingNetwork.radioMedium rangeFilter "\"\""
+par WifiJammingNetwork.radioMedium radioModeFilter false
+par WifiJammingNetwork.radioMedium listeningFilter false
+par WifiJammingNetwork.radioMedium macAddressFilter false
+par WifiJammingNetwork.radioMedium recordTransmissionLog false
+par WifiJammingNetwork.radioMedium recordReceptionLog false
+scalar WifiJammingNetwork.radioMedium "transmission count" 2
+scalar WifiJammingNetwork.radioMedium "signal send count" 2
+scalar WifiJammingNetwork.radioMedium "reception computation count" 2
+scalar WifiJammingNetwork.radioMedium "interference computation count" 12
+scalar WifiJammingNetwork.radioMedium "reception decision computation count" 2
+scalar WifiJammingNetwork.radioMedium "listening decision computation count" 8
+scalar WifiJammingNetwork.radioMedium "reception cache hit" 85.714285714286
+attr unit %
+scalar WifiJammingNetwork.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar WifiJammingNetwork.radioMedium "noise cache hit" 0
+attr unit %
+scalar WifiJammingNetwork.radioMedium "snir cache hit" 50
+attr unit %
+scalar WifiJammingNetwork.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar WifiJammingNetwork.radioMedium "reception result cache hit" 0
+attr unit %
+par WifiJammingNetwork.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator\""
+par WifiJammingNetwork.configurator minLinkWeight 0.001
+par WifiJammingNetwork.configurator configureIsolatedNetworksSeparatly false
+par WifiJammingNetwork.configurator config "<config>...</config> at content:1"
+par WifiJammingNetwork.configurator assignAddresses true
+par WifiJammingNetwork.configurator assignUniqueAddresses true
+par WifiJammingNetwork.configurator assignDisjunctSubnetAddresses true
+par WifiJammingNetwork.configurator addStaticRoutes true
+par WifiJammingNetwork.configurator addDefaultRoutes true
+par WifiJammingNetwork.configurator addSubnetRoutes true
+par WifiJammingNetwork.configurator addDirectRoutes true
+par WifiJammingNetwork.configurator optimizeRoutes true
+par WifiJammingNetwork.configurator dumpTopology false
+par WifiJammingNetwork.configurator dumpLinks false
+par WifiJammingNetwork.configurator dumpAddresses false
+par WifiJammingNetwork.configurator dumpRoutes false
+par WifiJammingNetwork.configurator dumpConfig "\"\""
+par WifiJammingNetwork.sender.radioIn[0].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.mobility typename "\"inet.mobility.static.StationaryMobility\""
+par WifiJammingNetwork.sender.mobility subjectModule "\"^\""
+par WifiJammingNetwork.sender.mobility coordinateSystemModule "\"\""
+par WifiJammingNetwork.sender.mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par WifiJammingNetwork.sender.mobility updateDisplayString true
+par WifiJammingNetwork.sender.mobility constraintAreaMinX "-inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility constraintAreaMinY "-inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility constraintAreaMinZ "-inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility constraintAreaMaxX "inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility constraintAreaMaxY "inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility constraintAreaMaxZ "inf m"
+attr unit m
+par WifiJammingNetwork.sender.mobility initialX "nan m"
+attr unit m
+par WifiJammingNetwork.sender.mobility initialY "nan m"
+attr unit m
+par WifiJammingNetwork.sender.mobility initialZ 0m
+attr unit m
+par WifiJammingNetwork.sender.mobility initialLatitude "nan deg"
+attr unit deg
+par WifiJammingNetwork.sender.mobility initialLongitude "nan deg"
+attr unit deg
+par WifiJammingNetwork.sender.mobility initialAltitude 0m
+attr unit m
+par WifiJammingNetwork.sender.mobility initialHeading 0deg
+attr unit deg
+par WifiJammingNetwork.sender.mobility initialElevation 0deg
+attr unit deg
+par WifiJammingNetwork.sender.mobility initialBank 0deg
+attr unit deg
+par WifiJammingNetwork.sender.mobility initFromDisplayString true
+par WifiJammingNetwork.sender.mobility updateFromDisplayString true
+par WifiJammingNetwork.sender.interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par WifiJammingNetwork.sender.interfaceTable displayAddresses false
+par WifiJammingNetwork.sender.cb typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.cb displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.cb forwardServiceRegistration true
+par WifiJammingNetwork.sender.cb forwardProtocolRegistration true
+par WifiJammingNetwork.sender.bl typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.bl displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.bl forwardServiceRegistration true
+par WifiJammingNetwork.sender.bl forwardProtocolRegistration true
+par WifiJammingNetwork.sender.li typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.li displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.li forwardServiceRegistration true
+par WifiJammingNetwork.sender.li forwardProtocolRegistration true
+par WifiJammingNetwork.sender.lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par WifiJammingNetwork.sender.lo[0].lo interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.lo[0].lo mtu 4470B
+attr unit B
+scalar WifiJammingNetwork.sender.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar WifiJammingNetwork.sender.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar WifiJammingNetwork.sender.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par WifiJammingNetwork.sender.lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par WifiJammingNetwork.sender.lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par WifiJammingNetwork.sender.lo[0] recordPcap false
+par WifiJammingNetwork.sender.lo[0] numPcapRecorders 0
+par WifiJammingNetwork.sender.lo[0] interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+scalar WifiJammingNetwork.sender.lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar WifiJammingNetwork.sender.lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar WifiJammingNetwork.sender.lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par WifiJammingNetwork.sender.wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par WifiJammingNetwork.sender.wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par WifiJammingNetwork.sender.wlan[0].llc registerProtocol false
+par WifiJammingNetwork.sender.wlan[0].agent typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211AgentSta\""
+par WifiJammingNetwork.sender.wlan[0].agent interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.wlan[0].agent mibModule "\"WifiJammingNetwork.sender.wlan[0].mib\""
+par WifiJammingNetwork.sender.wlan[0].agent activeScan true
+par WifiJammingNetwork.sender.wlan[0].agent channelsToScan "\"\""
+par WifiJammingNetwork.sender.wlan[0].agent probeDelay 0.1s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent minChannelTime 0.15s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent maxChannelTime 0.3s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent authenticationTimeout 5s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent associationTimeout 5s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent startingTime -1s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].agent defaultSsid "\"SSID\""
+scalar WifiJammingNetwork.sender.wlan[0].agent dropConfirm:count 0
+attr recordingmode count
+attr title "dropped confirms, count"
+scalar WifiJammingNetwork.sender.wlan[0].agent acceptConfirm:count 0
+attr recordingmode count
+attr title "accepted confirms, count"
+scalar WifiJammingNetwork.sender.wlan[0].agent sentRequest:count 1
+attr recordingmode count
+attr title "sent requests, count"
+par WifiJammingNetwork.sender.wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta\""
+par WifiJammingNetwork.sender.wlan[0].mgmt interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.wlan[0].mgmt numChannels 1
+par WifiJammingNetwork.sender.wlan[0].mgmt mibModule "\"WifiJammingNetwork.sender.wlan[0].mib\""
+par WifiJammingNetwork.sender.wlan[0].mgmt macModule "\"WifiJammingNetwork.sender.wlan[0].mac\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 256
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 1
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 256
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 1
+field mean 256
+field stddev nan
+field min 256
+field max 256
+field sum 256
+field sqrsum 65536
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	255	0
+bin	256	1
+bin	257	0
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 1
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 256
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 1
+field mean 256
+field stddev nan
+field min 256
+field max 256
+field sum 256
+field sqrsum 65536
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	255	0
+bin	256	1
+bin	257	0
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 1
+field mean 3.8e-05
+field stddev nan
+field min 3.8e-05
+field max 3.8e-05
+field sum 3.8e-05
+field sqrsum 1.444e-09
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.0001
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.contention stateChanged:count 14
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 1
+attr recordingmode count
+attr title "channel access granted, count"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess difsn -1
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess cwMin -1
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess cwMax -1
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 2
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 1
+attr recordingmode count
+attr title "packets defragmented, count"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection dataFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr recordingmode count
+attr title "retry limit reached, count"
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf rxModule "\"^.rx\""
+par WifiJammingNetwork.sender.wlan[0].mac.dcf txModule "\"^.tx\""
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeer:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeer:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac.dcf frameSequenceFinished:count 1
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 1
+field mean 3.8e-05
+field stddev nan
+field min 3.8e-05
+field max 3.8e-05
+field sum 3.8e-05
+field sqrsum 1.444e-09
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+statistic WifiJammingNetwork.sender.wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 1
+field mean 1
+field stddev nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+par WifiJammingNetwork.sender.wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par WifiJammingNetwork.sender.wlan[0].mac.ds mibModule "\"WifiJammingNetwork.sender.wlan[0].mib\""
+par WifiJammingNetwork.sender.wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par WifiJammingNetwork.sender.wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par WifiJammingNetwork.sender.wlan[0].mac.tx rxModule "\"^.rx\""
+par WifiJammingNetwork.sender.wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par WifiJammingNetwork.sender.wlan[0].mac interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.wlan[0].mac mibModule "\"WifiJammingNetwork.sender.wlan[0].mib\""
+par WifiJammingNetwork.sender.wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.sender.wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.sender.wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par WifiJammingNetwork.sender.wlan[0].mac mtu 2304B
+attr unit B
+par WifiJammingNetwork.sender.wlan[0].mac qosStation false
+scalar WifiJammingNetwork.sender.wlan[0].mac packetReceivedFromLower:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetSentToLower:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetSentToLower:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetReceivedFromUpper:count 3
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 3108
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetSentToUpper:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetSentToUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDrop:count 3
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDrop:sum(packetBytes) 3108
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropOther:count 3
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar WifiJammingNetwork.sender.wlan[0].mac packetDropOther:sum(packetBytes) 3108
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par WifiJammingNetwork.sender.wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par WifiJammingNetwork.sender.wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par WifiJammingNetwork.sender.wlan[0].radio.antenna numAntennas 1
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter bitrate -1bps
+attr unit bps
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter power 0.2W
+attr unit W
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter modulation "\"BPSK\""
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.sender.wlan[0].radio.transmitter channelNumber 0
+par WifiJammingNetwork.sender.wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par WifiJammingNetwork.sender.wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par WifiJammingNetwork.sender.wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr unit min,mean
+par WifiJammingNetwork.sender.wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par WifiJammingNetwork.sender.wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par WifiJammingNetwork.sender.wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par WifiJammingNetwork.sender.wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr unit min,mean
+par WifiJammingNetwork.sender.wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par WifiJammingNetwork.sender.wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par WifiJammingNetwork.sender.wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio.receiver modulation "\"BPSK\""
+par WifiJammingNetwork.sender.wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.sender.wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.sender.wlan[0].radio.receiver channelNumber 0
+par WifiJammingNetwork.sender.wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par WifiJammingNetwork.sender.wlan[0].radio radioMediumModule "\"radioMedium\""
+par WifiJammingNetwork.sender.wlan[0].radio energySourceModule "\"\""
+par WifiJammingNetwork.sender.wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par WifiJammingNetwork.sender.wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par WifiJammingNetwork.sender.wlan[0].radio sendRawBytes false
+par WifiJammingNetwork.sender.wlan[0].radio separateTransmissionParts false
+par WifiJammingNetwork.sender.wlan[0].radio separateReceptionParts false
+par WifiJammingNetwork.sender.wlan[0].radio displayCommunicationRange true
+par WifiJammingNetwork.sender.wlan[0].radio displayInterferenceRange false
+par WifiJammingNetwork.sender.wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.sender.wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par WifiJammingNetwork.sender.wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.sender.wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.sender.wlan[0].radio channelNumber 0
+par WifiJammingNetwork.sender.wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic WifiJammingNetwork.sender.wlan[0].radio minSnir:histogram
+field count 1
+field mean 21739.750578932
+field stddev nan
+field min 21739.750578932
+field max 21739.750578932
+field sum 21739.750578932
+field sqrsum 472616755.23416
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	21739.24	0
+bin	21739.26	0
+bin	21739.28	0
+bin	21739.3	0
+bin	21739.32	0
+bin	21739.34	0
+bin	21739.36	0
+bin	21739.38	0
+bin	21739.4	0
+bin	21739.42	0
+bin	21739.44	0
+bin	21739.46	0
+bin	21739.48	0
+bin	21739.5	0
+bin	21739.52	0
+bin	21739.54	0
+bin	21739.56	0
+bin	21739.58	0
+bin	21739.6	0
+bin	21739.62	0
+bin	21739.64	0
+bin	21739.66	0
+bin	21739.68	0
+bin	21739.7	0
+bin	21739.72	0
+bin	21739.74	1
+bin	21739.76	0
+bin	21739.78	0
+bin	21739.8	0
+bin	21739.82	0
+bin	21739.84	0
+bin	21739.86	0
+bin	21739.88	0
+bin	21739.9	0
+bin	21739.92	0
+bin	21739.94	0
+bin	21739.96	0
+bin	21739.98	0
+bin	21740	0
+bin	21740.02	0
+bin	21740.04	0
+bin	21740.06	0
+bin	21740.08	0
+bin	21740.1	0
+bin	21740.12	0
+bin	21740.14	0
+bin	21740.16	0
+bin	21740.18	0
+bin	21740.2	0
+bin	21740.22	0
+bin	21740.24	0
+bin	21740.26	0
+statistic WifiJammingNetwork.sender.wlan[0].radio packetErrorRate:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic WifiJammingNetwork.sender.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic WifiJammingNetwork.sender.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar WifiJammingNetwork.sender.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar WifiJammingNetwork.sender.wlan[0].radio receptionState:count 5
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar WifiJammingNetwork.sender.wlan[0].radio radioMode:count 5
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic WifiJammingNetwork.sender.wlan[0].radio radioChannel:histogram
+field count 2
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	2
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+par WifiJammingNetwork.sender.wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par WifiJammingNetwork.sender.wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par WifiJammingNetwork.sender.wlan[0] recordPcap false
+par WifiJammingNetwork.sender.wlan[0] numPcapRecorders 0
+par WifiJammingNetwork.sender.wlan[0] interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.wlan[0] energySourceModule "\"\""
+par WifiJammingNetwork.sender.wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.sender.wlan[0] address "\"0A-AA-00-00-00-01\""
+attr mutable ""
+par WifiJammingNetwork.sender.wlan[0] protocol "\"\""
+par WifiJammingNetwork.sender.wlan[0] bitrate -1bps
+attr unit bps
+scalar WifiJammingNetwork.sender.wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar WifiJammingNetwork.sender.wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar WifiJammingNetwork.sender.wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par WifiJammingNetwork.sender.ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.sender.ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par WifiJammingNetwork.sender.ipv4.configurator interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.configurator routingTableModule "\"WifiJammingNetwork.sender.ipv4.routingTable\""
+par WifiJammingNetwork.sender.ipv4.configurator networkConfiguratorModule "\"configurator\""
+par WifiJammingNetwork.sender.ipv4.configurator configureRoutingTable true
+par WifiJammingNetwork.sender.ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par WifiJammingNetwork.sender.ipv4.routingTable interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.routingTable routerId "\"auto\""
+par WifiJammingNetwork.sender.ipv4.routingTable netmaskRoutes "\"*\""
+par WifiJammingNetwork.sender.ipv4.routingTable forwarding false
+par WifiJammingNetwork.sender.ipv4.routingTable multicastForwarding false
+par WifiJammingNetwork.sender.ipv4.routingTable useAdminDist false
+par WifiJammingNetwork.sender.ipv4.routingTable routingFile "\"\""
+par WifiJammingNetwork.sender.ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par WifiJammingNetwork.sender.ipv4.natTable networkProtocolModule "\"^.ip\""
+par WifiJammingNetwork.sender.ipv4.natTable config "<config/> at content:1"
+par WifiJammingNetwork.sender.ipv4.up typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.ipv4.up forwardServiceRegistration true
+par WifiJammingNetwork.sender.ipv4.up forwardProtocolRegistration true
+par WifiJammingNetwork.sender.ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par WifiJammingNetwork.sender.ipv4.igmp interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.igmp routingTableModule "\"WifiJammingNetwork.sender.ipv4.routingTable\""
+par WifiJammingNetwork.sender.ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.sender.ipv4.igmp enabled true
+par WifiJammingNetwork.sender.ipv4.igmp robustnessVariable 2
+par WifiJammingNetwork.sender.ipv4.igmp queryInterval 125s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp queryResponseInterval 10s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp startupQueryCount 2
+par WifiJammingNetwork.sender.ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.igmp lastMemberQueryCount 2
+par WifiJammingNetwork.sender.ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par WifiJammingNetwork.sender.ipv4.icmp interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.icmp routingTableModule "\"WifiJammingNetwork.sender.ipv4.routingTable\""
+par WifiJammingNetwork.sender.ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par WifiJammingNetwork.sender.ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par WifiJammingNetwork.sender.ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.ipv4.mp forwardServiceRegistration true
+par WifiJammingNetwork.sender.ipv4.mp forwardProtocolRegistration true
+par WifiJammingNetwork.sender.ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par WifiJammingNetwork.sender.ipv4.ip interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.ip routingTableModule "\"WifiJammingNetwork.sender.ipv4.routingTable\""
+par WifiJammingNetwork.sender.ipv4.ip arpModule "\"WifiJammingNetwork.sender.ipv4.arp\""
+par WifiJammingNetwork.sender.ipv4.ip icmpModule "\"WifiJammingNetwork.sender.ipv4.icmp\""
+par WifiJammingNetwork.sender.ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.sender.ipv4.ip timeToLive 32
+par WifiJammingNetwork.sender.ipv4.ip multicastTimeToLive 32
+par WifiJammingNetwork.sender.ipv4.ip fragmentTimeout 60s
+attr unit s
+par WifiJammingNetwork.sender.ipv4.ip limitedBroadcast false
+par WifiJammingNetwork.sender.ipv4.ip directBroadcastInterfaces "\"\""
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar WifiJammingNetwork.sender.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par WifiJammingNetwork.sender.ipv4.arp typename "\"inet.networklayer.arp.ipv4.GlobalArp\""
+par WifiJammingNetwork.sender.ipv4.arp interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4.arp addressType "\"ipv4\""
+attr enum ipv4,ipv6,mac,moduleid,modulepath
+par WifiJammingNetwork.sender.ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.ipv4.lp forwardServiceRegistration true
+par WifiJammingNetwork.sender.ipv4.lp forwardProtocolRegistration true
+par WifiJammingNetwork.sender.ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par WifiJammingNetwork.sender.ipv4 forwarding false
+par WifiJammingNetwork.sender.ipv4 multicastForwarding false
+par WifiJammingNetwork.sender.ipv4 interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.ipv4 displayStringTextFormat "\"%i\""
+par WifiJammingNetwork.sender.nl typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.nl displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.nl forwardServiceRegistration true
+par WifiJammingNetwork.sender.nl forwardProtocolRegistration true
+par WifiJammingNetwork.sender.udp typename "\"inet.transportlayer.udp.Udp\""
+par WifiJammingNetwork.sender.udp interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.udp icmpModule "\"^.ipv4.icmp\""
+par WifiJammingNetwork.sender.udp icmpv6Module "\"^.ipv6.icmpv6\""
+par WifiJammingNetwork.sender.udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par WifiJammingNetwork.sender.udp defaultMulticastLoop true
+scalar WifiJammingNetwork.sender.udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar WifiJammingNetwork.sender.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.udp packetSent:count 3
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar WifiJammingNetwork.sender.udp packetSent:sum(packetBytes) 3024
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar WifiJammingNetwork.sender.udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar WifiJammingNetwork.sender.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar WifiJammingNetwork.sender.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par WifiJammingNetwork.sender.tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par WifiJammingNetwork.sender.tcp crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.sender.tcp advertisedWindow 7504
+par WifiJammingNetwork.sender.tcp delayedAcksEnabled false
+par WifiJammingNetwork.sender.tcp nagleEnabled true
+par WifiJammingNetwork.sender.tcp limitedTransmitEnabled false
+par WifiJammingNetwork.sender.tcp increasedIWEnabled false
+par WifiJammingNetwork.sender.tcp sackSupport false
+par WifiJammingNetwork.sender.tcp windowScalingSupport false
+par WifiJammingNetwork.sender.tcp windowScalingFactor -1
+par WifiJammingNetwork.sender.tcp timestampSupport false
+par WifiJammingNetwork.sender.tcp mss 536
+par WifiJammingNetwork.sender.tcp msl 120s
+attr unit s
+par WifiJammingNetwork.sender.tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par WifiJammingNetwork.sender.tcp useDataNotification false
+par WifiJammingNetwork.sender.tcp dupthresh 3
+par WifiJammingNetwork.sender.tcp initialSsthresh 4294967295
+par WifiJammingNetwork.sender.tcp stopOperationExtraTime 0s
+attr unit s
+par WifiJammingNetwork.sender.tcp stopOperationTimeout 2s
+attr unit s
+par WifiJammingNetwork.sender.tcp ecnWillingness false
+par WifiJammingNetwork.sender.tcp dctcpGamma 0.0625
+par WifiJammingNetwork.sender.tn typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.tn displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.tn forwardServiceRegistration true
+par WifiJammingNetwork.sender.tn forwardProtocolRegistration true
+par WifiJammingNetwork.sender.app[0] typename "\"inet.applications.udpapp.UdpBasicApp\""
+par WifiJammingNetwork.sender.app[0] interfaceTableModule "\"WifiJammingNetwork.sender.interfaceTable\""
+par WifiJammingNetwork.sender.app[0] clockModule "\"\""
+par WifiJammingNetwork.sender.app[0] localPort -1
+par WifiJammingNetwork.sender.app[0] destAddresses "\"10.0.0.2\""
+par WifiJammingNetwork.sender.app[0] localAddress "\"\""
+par WifiJammingNetwork.sender.app[0] packetName "\"UdpBasicAppData\""
+par WifiJammingNetwork.sender.app[0] destPort 8080
+par WifiJammingNetwork.sender.app[0] messageLength 1000B
+attr unit B
+par WifiJammingNetwork.sender.app[0] startTime 0.08s
+attr unit s
+par WifiJammingNetwork.sender.app[0] stopTime 1.9s
+attr unit s
+par WifiJammingNetwork.sender.app[0] sendInterval 0.1s
+attr unit s
+par WifiJammingNetwork.sender.app[0] timeToLive -1
+par WifiJammingNetwork.sender.app[0] dontFragment false
+par WifiJammingNetwork.sender.app[0] dscp -1
+par WifiJammingNetwork.sender.app[0] tos -1
+par WifiJammingNetwork.sender.app[0] multicastInterface "\"\""
+par WifiJammingNetwork.sender.app[0] receiveBroadcast false
+par WifiJammingNetwork.sender.app[0] joinLocalMulticastGroups false
+par WifiJammingNetwork.sender.app[0] stopOperationExtraTime -1s
+attr unit s
+par WifiJammingNetwork.sender.app[0] stopOperationTimeout 2s
+attr unit s
+scalar WifiJammingNetwork.sender.app[0] "packets sent" 4
+scalar WifiJammingNetwork.sender.app[0] "packets received" 0
+scalar WifiJammingNetwork.sender.app[0] packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar WifiJammingNetwork.sender.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic WifiJammingNetwork.sender.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode stats
+attr source dataAge(packetReceived)
+attr title "received packet lifetime"
+attr unit s
+scalar WifiJammingNetwork.sender.app[0] packetSent:count 4
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar WifiJammingNetwork.sender.app[0] packetSent:sum(packetBytes) 4000
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+par WifiJammingNetwork.sender.at typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.sender.at displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.sender.at forwardServiceRegistration true
+par WifiJammingNetwork.sender.at forwardProtocolRegistration true
+par WifiJammingNetwork.sender typename "\"inet.node.inet.WirelessHost\""
+par WifiJammingNetwork.sender hasStatus false
+par WifiJammingNetwork.sender osgModel "\"\""
+par WifiJammingNetwork.sender osgModelColor "\"\""
+par WifiJammingNetwork.sender canvasImage "\"\""
+par WifiJammingNetwork.sender canvasImageColor "\"\""
+par WifiJammingNetwork.sender recordPcap false
+par WifiJammingNetwork.sender numPcapRecorders 0
+par WifiJammingNetwork.sender numLoInterfaces 1
+par WifiJammingNetwork.sender numWlanInterfaces 1
+par WifiJammingNetwork.sender numEthInterfaces 0
+par WifiJammingNetwork.sender numPppInterfaces 0
+par WifiJammingNetwork.sender numTunInterfaces 0
+par WifiJammingNetwork.sender numVirtInterfaces 0
+par WifiJammingNetwork.sender fcsMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.sender hasIpv4 true
+par WifiJammingNetwork.sender hasIpv6 false
+par WifiJammingNetwork.sender hasGn false
+par WifiJammingNetwork.sender forwarding false
+par WifiJammingNetwork.sender multicastForwarding false
+par WifiJammingNetwork.sender hasUdp true
+par WifiJammingNetwork.sender hasTcp true
+par WifiJammingNetwork.sender hasSctp false
+par WifiJammingNetwork.sender numApps 1
+par WifiJammingNetwork.receiver.radioIn[0].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.mobility typename "\"inet.mobility.static.StationaryMobility\""
+par WifiJammingNetwork.receiver.mobility subjectModule "\"^\""
+par WifiJammingNetwork.receiver.mobility coordinateSystemModule "\"\""
+par WifiJammingNetwork.receiver.mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par WifiJammingNetwork.receiver.mobility updateDisplayString true
+par WifiJammingNetwork.receiver.mobility constraintAreaMinX "-inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility constraintAreaMinY "-inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility constraintAreaMinZ "-inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility constraintAreaMaxX "inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility constraintAreaMaxY "inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility constraintAreaMaxZ "inf m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility initialX "nan m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility initialY "nan m"
+attr unit m
+par WifiJammingNetwork.receiver.mobility initialZ 0m
+attr unit m
+par WifiJammingNetwork.receiver.mobility initialLatitude "nan deg"
+attr unit deg
+par WifiJammingNetwork.receiver.mobility initialLongitude "nan deg"
+attr unit deg
+par WifiJammingNetwork.receiver.mobility initialAltitude 0m
+attr unit m
+par WifiJammingNetwork.receiver.mobility initialHeading 0deg
+attr unit deg
+par WifiJammingNetwork.receiver.mobility initialElevation 0deg
+attr unit deg
+par WifiJammingNetwork.receiver.mobility initialBank 0deg
+attr unit deg
+par WifiJammingNetwork.receiver.mobility initFromDisplayString true
+par WifiJammingNetwork.receiver.mobility updateFromDisplayString true
+par WifiJammingNetwork.receiver.interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par WifiJammingNetwork.receiver.interfaceTable displayAddresses false
+par WifiJammingNetwork.receiver.cb typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.cb displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.cb forwardServiceRegistration true
+par WifiJammingNetwork.receiver.cb forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.bl typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.bl displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.bl forwardServiceRegistration true
+par WifiJammingNetwork.receiver.bl forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.li typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.li displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.li forwardServiceRegistration true
+par WifiJammingNetwork.receiver.li forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par WifiJammingNetwork.receiver.lo[0].lo interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.lo[0].lo mtu 4470B
+attr unit B
+scalar WifiJammingNetwork.receiver.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar WifiJammingNetwork.receiver.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar WifiJammingNetwork.receiver.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par WifiJammingNetwork.receiver.lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par WifiJammingNetwork.receiver.lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par WifiJammingNetwork.receiver.lo[0] recordPcap false
+par WifiJammingNetwork.receiver.lo[0] numPcapRecorders 0
+par WifiJammingNetwork.receiver.lo[0] interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+scalar WifiJammingNetwork.receiver.lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar WifiJammingNetwork.receiver.lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar WifiJammingNetwork.receiver.lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par WifiJammingNetwork.receiver.wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par WifiJammingNetwork.receiver.wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par WifiJammingNetwork.receiver.wlan[0].llc registerProtocol false
+par WifiJammingNetwork.receiver.wlan[0].agent typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211AgentSta\""
+par WifiJammingNetwork.receiver.wlan[0].agent interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.wlan[0].agent mibModule "\"WifiJammingNetwork.receiver.wlan[0].mib\""
+par WifiJammingNetwork.receiver.wlan[0].agent activeScan true
+par WifiJammingNetwork.receiver.wlan[0].agent channelsToScan "\"\""
+par WifiJammingNetwork.receiver.wlan[0].agent probeDelay 0.1s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent minChannelTime 0.15s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent maxChannelTime 0.3s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent authenticationTimeout 5s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent associationTimeout 5s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent startingTime -1s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].agent defaultSsid "\"SSID\""
+scalar WifiJammingNetwork.receiver.wlan[0].agent dropConfirm:count 0
+attr recordingmode count
+attr title "dropped confirms, count"
+scalar WifiJammingNetwork.receiver.wlan[0].agent acceptConfirm:count 0
+attr recordingmode count
+attr title "accepted confirms, count"
+scalar WifiJammingNetwork.receiver.wlan[0].agent sentRequest:count 1
+attr recordingmode count
+attr title "sent requests, count"
+par WifiJammingNetwork.receiver.wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta\""
+par WifiJammingNetwork.receiver.wlan[0].mgmt interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.wlan[0].mgmt numChannels 1
+par WifiJammingNetwork.receiver.wlan[0].mgmt mibModule "\"WifiJammingNetwork.receiver.wlan[0].mib\""
+par WifiJammingNetwork.receiver.wlan[0].mgmt macModule "\"WifiJammingNetwork.receiver.wlan[0].mac\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 256
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 1
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 256
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 1
+field mean 256
+field stddev nan
+field min 256
+field max 256
+field sum 256
+field sqrsum 65536
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	255	0
+bin	256	1
+bin	257	0
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 1
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 256
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 1
+field mean 256
+field stddev nan
+field min 256
+field max 256
+field sum 256
+field sqrsum 65536
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	255	0
+bin	256	1
+bin	257	0
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 1
+field mean 3.8e-05
+field stddev nan
+field min 3.8e-05
+field max 3.8e-05
+field sum 3.8e-05
+field sqrsum 1.444e-09
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.0001
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.contention stateChanged:count 14
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 1
+attr recordingmode count
+attr title "channel access granted, count"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess difsn -1
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess cwMin -1
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess cwMax -1
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 2
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 1
+attr recordingmode count
+attr title "packets defragmented, count"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection dataFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr recordingmode count
+attr title "retry limit reached, count"
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf rxModule "\"^.rx\""
+par WifiJammingNetwork.receiver.wlan[0].mac.dcf txModule "\"^.tx\""
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeer:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeer:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerUnicast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac.dcf frameSequenceFinished:count 1
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 1
+field mean 3.8e-05
+field stddev nan
+field min 3.8e-05
+field max 3.8e-05
+field sum 3.8e-05
+field sqrsum 1.444e-09
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+statistic WifiJammingNetwork.receiver.wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 1
+field mean 1
+field stddev nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+par WifiJammingNetwork.receiver.wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par WifiJammingNetwork.receiver.wlan[0].mac.ds mibModule "\"WifiJammingNetwork.receiver.wlan[0].mib\""
+par WifiJammingNetwork.receiver.wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par WifiJammingNetwork.receiver.wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par WifiJammingNetwork.receiver.wlan[0].mac.tx rxModule "\"^.rx\""
+par WifiJammingNetwork.receiver.wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par WifiJammingNetwork.receiver.wlan[0].mac interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.wlan[0].mac mibModule "\"WifiJammingNetwork.receiver.wlan[0].mib\""
+par WifiJammingNetwork.receiver.wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.receiver.wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.receiver.wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par WifiJammingNetwork.receiver.wlan[0].mac mtu 2304B
+attr unit B
+par WifiJammingNetwork.receiver.wlan[0].mac qosStation false
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetReceivedFromLower:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetSentToLower:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetSentToLower:sum(packetBytes) 32
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetReceivedFromUpper:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetSentToUpper:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetSentToUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar WifiJammingNetwork.receiver.wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par WifiJammingNetwork.receiver.wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par WifiJammingNetwork.receiver.wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par WifiJammingNetwork.receiver.wlan[0].radio.antenna numAntennas 1
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter bitrate -1bps
+attr unit bps
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter power 0.2W
+attr unit W
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter modulation "\"BPSK\""
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.receiver.wlan[0].radio.transmitter channelNumber 0
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr unit min,mean
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr unit min,mean
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver modulation "\"BPSK\""
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.receiver.wlan[0].radio.receiver channelNumber 0
+par WifiJammingNetwork.receiver.wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par WifiJammingNetwork.receiver.wlan[0].radio radioMediumModule "\"radioMedium\""
+par WifiJammingNetwork.receiver.wlan[0].radio energySourceModule "\"\""
+par WifiJammingNetwork.receiver.wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par WifiJammingNetwork.receiver.wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par WifiJammingNetwork.receiver.wlan[0].radio sendRawBytes false
+par WifiJammingNetwork.receiver.wlan[0].radio separateTransmissionParts false
+par WifiJammingNetwork.receiver.wlan[0].radio separateReceptionParts false
+par WifiJammingNetwork.receiver.wlan[0].radio displayCommunicationRange true
+par WifiJammingNetwork.receiver.wlan[0].radio displayInterferenceRange false
+par WifiJammingNetwork.receiver.wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par WifiJammingNetwork.receiver.wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par WifiJammingNetwork.receiver.wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.receiver.wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par WifiJammingNetwork.receiver.wlan[0].radio channelNumber 0
+par WifiJammingNetwork.receiver.wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic WifiJammingNetwork.receiver.wlan[0].radio minSnir:histogram
+field count 1
+field mean 21739.750578932
+field stddev nan
+field min 21739.750578932
+field max 21739.750578932
+field sum 21739.750578932
+field sqrsum 472616755.23416
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	21739.24	0
+bin	21739.26	0
+bin	21739.28	0
+bin	21739.3	0
+bin	21739.32	0
+bin	21739.34	0
+bin	21739.36	0
+bin	21739.38	0
+bin	21739.4	0
+bin	21739.42	0
+bin	21739.44	0
+bin	21739.46	0
+bin	21739.48	0
+bin	21739.5	0
+bin	21739.52	0
+bin	21739.54	0
+bin	21739.56	0
+bin	21739.58	0
+bin	21739.6	0
+bin	21739.62	0
+bin	21739.64	0
+bin	21739.66	0
+bin	21739.68	0
+bin	21739.7	0
+bin	21739.72	0
+bin	21739.74	1
+bin	21739.76	0
+bin	21739.78	0
+bin	21739.8	0
+bin	21739.82	0
+bin	21739.84	0
+bin	21739.86	0
+bin	21739.88	0
+bin	21739.9	0
+bin	21739.92	0
+bin	21739.94	0
+bin	21739.96	0
+bin	21739.98	0
+bin	21740	0
+bin	21740.02	0
+bin	21740.04	0
+bin	21740.06	0
+bin	21740.08	0
+bin	21740.1	0
+bin	21740.12	0
+bin	21740.14	0
+bin	21740.16	0
+bin	21740.18	0
+bin	21740.2	0
+bin	21740.22	0
+bin	21740.24	0
+bin	21740.26	0
+statistic WifiJammingNetwork.receiver.wlan[0].radio packetErrorRate:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic WifiJammingNetwork.receiver.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic WifiJammingNetwork.receiver.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar WifiJammingNetwork.receiver.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar WifiJammingNetwork.receiver.wlan[0].radio receptionState:count 5
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar WifiJammingNetwork.receiver.wlan[0].radio radioMode:count 5
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic WifiJammingNetwork.receiver.wlan[0].radio radioChannel:histogram
+field count 2
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	2
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+par WifiJammingNetwork.receiver.wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par WifiJammingNetwork.receiver.wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par WifiJammingNetwork.receiver.wlan[0] recordPcap false
+par WifiJammingNetwork.receiver.wlan[0] numPcapRecorders 0
+par WifiJammingNetwork.receiver.wlan[0] interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.wlan[0] energySourceModule "\"\""
+par WifiJammingNetwork.receiver.wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par WifiJammingNetwork.receiver.wlan[0] address "\"0A-AA-00-00-00-02\""
+attr mutable ""
+par WifiJammingNetwork.receiver.wlan[0] protocol "\"\""
+par WifiJammingNetwork.receiver.wlan[0] bitrate -1bps
+attr unit bps
+scalar WifiJammingNetwork.receiver.wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar WifiJammingNetwork.receiver.wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar WifiJammingNetwork.receiver.wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par WifiJammingNetwork.receiver.ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par WifiJammingNetwork.receiver.ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par WifiJammingNetwork.receiver.ipv4.configurator interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.configurator routingTableModule "\"WifiJammingNetwork.receiver.ipv4.routingTable\""
+par WifiJammingNetwork.receiver.ipv4.configurator networkConfiguratorModule "\"configurator\""
+par WifiJammingNetwork.receiver.ipv4.configurator configureRoutingTable true
+par WifiJammingNetwork.receiver.ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par WifiJammingNetwork.receiver.ipv4.routingTable interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.routingTable routerId "\"auto\""
+par WifiJammingNetwork.receiver.ipv4.routingTable netmaskRoutes "\"*\""
+par WifiJammingNetwork.receiver.ipv4.routingTable forwarding false
+par WifiJammingNetwork.receiver.ipv4.routingTable multicastForwarding false
+par WifiJammingNetwork.receiver.ipv4.routingTable useAdminDist false
+par WifiJammingNetwork.receiver.ipv4.routingTable routingFile "\"\""
+par WifiJammingNetwork.receiver.ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par WifiJammingNetwork.receiver.ipv4.natTable networkProtocolModule "\"^.ip\""
+par WifiJammingNetwork.receiver.ipv4.natTable config "<config/> at content:1"
+par WifiJammingNetwork.receiver.ipv4.up typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.ipv4.up forwardServiceRegistration true
+par WifiJammingNetwork.receiver.ipv4.up forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par WifiJammingNetwork.receiver.ipv4.igmp interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.igmp routingTableModule "\"WifiJammingNetwork.receiver.ipv4.routingTable\""
+par WifiJammingNetwork.receiver.ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.receiver.ipv4.igmp enabled true
+par WifiJammingNetwork.receiver.ipv4.igmp robustnessVariable 2
+par WifiJammingNetwork.receiver.ipv4.igmp queryInterval 125s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp queryResponseInterval 10s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp startupQueryCount 2
+par WifiJammingNetwork.receiver.ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.igmp lastMemberQueryCount 2
+par WifiJammingNetwork.receiver.ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par WifiJammingNetwork.receiver.ipv4.icmp interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.icmp routingTableModule "\"WifiJammingNetwork.receiver.ipv4.routingTable\""
+par WifiJammingNetwork.receiver.ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par WifiJammingNetwork.receiver.ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par WifiJammingNetwork.receiver.ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.ipv4.mp forwardServiceRegistration true
+par WifiJammingNetwork.receiver.ipv4.mp forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par WifiJammingNetwork.receiver.ipv4.ip interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.ip routingTableModule "\"WifiJammingNetwork.receiver.ipv4.routingTable\""
+par WifiJammingNetwork.receiver.ipv4.ip arpModule "\"WifiJammingNetwork.receiver.ipv4.arp\""
+par WifiJammingNetwork.receiver.ipv4.ip icmpModule "\"WifiJammingNetwork.receiver.ipv4.icmp\""
+par WifiJammingNetwork.receiver.ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.receiver.ipv4.ip timeToLive 32
+par WifiJammingNetwork.receiver.ipv4.ip multicastTimeToLive 32
+par WifiJammingNetwork.receiver.ipv4.ip fragmentTimeout 60s
+attr unit s
+par WifiJammingNetwork.receiver.ipv4.ip limitedBroadcast false
+par WifiJammingNetwork.receiver.ipv4.ip directBroadcastInterfaces "\"\""
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar WifiJammingNetwork.receiver.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par WifiJammingNetwork.receiver.ipv4.arp typename "\"inet.networklayer.arp.ipv4.GlobalArp\""
+par WifiJammingNetwork.receiver.ipv4.arp interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4.arp addressType "\"ipv4\""
+attr enum ipv4,ipv6,mac,moduleid,modulepath
+par WifiJammingNetwork.receiver.ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.ipv4.lp forwardServiceRegistration true
+par WifiJammingNetwork.receiver.ipv4.lp forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par WifiJammingNetwork.receiver.ipv4 forwarding false
+par WifiJammingNetwork.receiver.ipv4 multicastForwarding false
+par WifiJammingNetwork.receiver.ipv4 interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.ipv4 displayStringTextFormat "\"%i\""
+par WifiJammingNetwork.receiver.nl typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.nl displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.nl forwardServiceRegistration true
+par WifiJammingNetwork.receiver.nl forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.udp typename "\"inet.transportlayer.udp.Udp\""
+par WifiJammingNetwork.receiver.udp interfaceTableModule "\"WifiJammingNetwork.receiver.interfaceTable\""
+par WifiJammingNetwork.receiver.udp icmpModule "\"^.ipv4.icmp\""
+par WifiJammingNetwork.receiver.udp icmpv6Module "\"^.ipv6.icmpv6\""
+par WifiJammingNetwork.receiver.udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par WifiJammingNetwork.receiver.udp defaultMulticastLoop true
+scalar WifiJammingNetwork.receiver.udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar WifiJammingNetwork.receiver.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar WifiJammingNetwork.receiver.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar WifiJammingNetwork.receiver.udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar WifiJammingNetwork.receiver.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar WifiJammingNetwork.receiver.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par WifiJammingNetwork.receiver.tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par WifiJammingNetwork.receiver.tcp crcMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.receiver.tcp advertisedWindow 7504
+par WifiJammingNetwork.receiver.tcp delayedAcksEnabled false
+par WifiJammingNetwork.receiver.tcp nagleEnabled true
+par WifiJammingNetwork.receiver.tcp limitedTransmitEnabled false
+par WifiJammingNetwork.receiver.tcp increasedIWEnabled false
+par WifiJammingNetwork.receiver.tcp sackSupport false
+par WifiJammingNetwork.receiver.tcp windowScalingSupport false
+par WifiJammingNetwork.receiver.tcp windowScalingFactor -1
+par WifiJammingNetwork.receiver.tcp timestampSupport false
+par WifiJammingNetwork.receiver.tcp mss 536
+par WifiJammingNetwork.receiver.tcp msl 120s
+attr unit s
+par WifiJammingNetwork.receiver.tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par WifiJammingNetwork.receiver.tcp useDataNotification false
+par WifiJammingNetwork.receiver.tcp dupthresh 3
+par WifiJammingNetwork.receiver.tcp initialSsthresh 4294967295
+par WifiJammingNetwork.receiver.tcp stopOperationExtraTime 0s
+attr unit s
+par WifiJammingNetwork.receiver.tcp stopOperationTimeout 2s
+attr unit s
+par WifiJammingNetwork.receiver.tcp ecnWillingness false
+par WifiJammingNetwork.receiver.tcp dctcpGamma 0.0625
+par WifiJammingNetwork.receiver.tn typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.tn displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.tn forwardServiceRegistration true
+par WifiJammingNetwork.receiver.tn forwardProtocolRegistration true
+par WifiJammingNetwork.receiver.at typename "\"inet.common.MessageDispatcher\""
+par WifiJammingNetwork.receiver.at displayStringTextFormat "\"processed %p pk (%l)\""
+par WifiJammingNetwork.receiver.at forwardServiceRegistration true
+par WifiJammingNetwork.receiver.at forwardProtocolRegistration true
+par WifiJammingNetwork.receiver typename "\"inet.node.inet.WirelessHost\""
+par WifiJammingNetwork.receiver hasStatus false
+par WifiJammingNetwork.receiver osgModel "\"\""
+par WifiJammingNetwork.receiver osgModelColor "\"\""
+par WifiJammingNetwork.receiver canvasImage "\"\""
+par WifiJammingNetwork.receiver canvasImageColor "\"\""
+par WifiJammingNetwork.receiver recordPcap false
+par WifiJammingNetwork.receiver numPcapRecorders 0
+par WifiJammingNetwork.receiver numLoInterfaces 1
+par WifiJammingNetwork.receiver numWlanInterfaces 1
+par WifiJammingNetwork.receiver numEthInterfaces 0
+par WifiJammingNetwork.receiver numPppInterfaces 0
+par WifiJammingNetwork.receiver numTunInterfaces 0
+par WifiJammingNetwork.receiver numVirtInterfaces 0
+par WifiJammingNetwork.receiver fcsMode "\"declared\""
+attr enum declared,computed
+par WifiJammingNetwork.receiver hasIpv4 true
+par WifiJammingNetwork.receiver hasIpv6 false
+par WifiJammingNetwork.receiver hasGn false
+par WifiJammingNetwork.receiver forwarding false
+par WifiJammingNetwork.receiver multicastForwarding false
+par WifiJammingNetwork.receiver hasUdp true
+par WifiJammingNetwork.receiver hasTcp true
+par WifiJammingNetwork.receiver hasSctp false
+par WifiJammingNetwork.receiver numApps 0
+par WifiJammingNetwork typename "\"src.WifiJammingNetwork\""
+
