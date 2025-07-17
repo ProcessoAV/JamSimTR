@@ -27,11 +27,11 @@ network WifiJammingNetwork
         }
 
         receiver: WirelessHost {
-            @display("p=472,182");
+            @display("p=457,182");
             @labels("node");
         }
 
         jammer: NoiseSource {
-            @display("p=320,102");
+            @display("p=400,109");
         }
 }
