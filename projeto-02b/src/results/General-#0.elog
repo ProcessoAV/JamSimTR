@@ -1,0 +1,173 @@
+SB ov 1537 ev 2 rid General-0-20250718-01:58:06-24720
+
+E # 0 t 0 m 1 ce -1 msg -1
+MC id 1 c omnetpp::cModule t src.recording n recording cm 1
+MDC id 1 d ""
+MC id 2 c inet::NodeBase t inet.node.inet.WirelessHost pid 1 n hostA cm 1
+MDC id 2 d p=50,325;i=device/wifilaptop;bgb=1256,1125
+GC m 2 g 1048576 n radioIn i 0 o 0
+MC id 3 c inet::NodeBase t inet.node.inet.WirelessHost pid 1 n hostB cm 1
+MDC id 3 d p=450,325;i=device/wifilaptop;bgb=1256,1125
+GC m 3 g 1048576 n radioIn i 0 o 0
+MC id 4 c inet::physicallayer::NoiseSource t inet.physicallayer.wireless.noise.NoiseSource pid 1 n jammer
+GC m 4 g 0 n upperLayerIn o 0
+GC m 4 g 3 n upperLayerOut o 1
+GC m 4 g 4 n radioIn o 0
+MDC id 4 d p=450,200;i=block/wtx
+MC id 5 c inet::physicallayer::RadioMedium t inet.physicallayer.wireless.common.medium.RadioMedium pid 1 n radioMedium
+MDC id 5 d p=659,26;i=misc/sun
+MC id 6 c inet::Ipv4NetworkConfigurator t inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator pid 1 n configurator
+MDC id 6 d p=155,27;i=block/cogwheel
+MC id 7 c omnetpp::cModule t inet.visualizer.common.IntegratedVisualizer pid 1 n visualizer cm 1
+MDC id 7 d p=61,27;i=block/app
+MC id 8 c inet::StationaryMobility t inet.mobility.static.StationaryMobility pid 2 n mobility
+MDC id 8 d is=s;p=125,160;i=block/cogwheel
+MC id 9 c inet::InterfaceTable t inet.networklayer.common.InterfaceTable pid 2 n interfaceTable
+MDC id 9 d is=s;p=125,240;i=block/table
+MC id 10 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n cb
+MDC id 10 d p=750,600;b=1000,5,,,,1
+MC id 11 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n bl
+MDC id 11 d p=750,750;b=1000,5,,,,1
+MC id 12 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n li
+MDC id 12 d p=750,900;b=1000,5,,,,1
+MC id 13 c inet::NetworkInterface t inet.linklayer.loopback.LoopbackInterface pid 2 n lo[0]
+GC m 13 g 0 n upperLayerIn o 0
+GC m 13 g 3 n upperLayerOut o 1
+MDC id 13 d p=750,975,row,150;i=block/ifcard
+MC id 14 c inet::NetworkInterface t inet.linklayer.acking.AckingWirelessInterface pid 2 n wlan[0]
+GC m 14 g 0 n upperLayerIn o 0
+GC m 14 g 3 n upperLayerOut o 1
+GC m 14 g 4 n radioIn o 0
+MDC id 14 d q=queue;p=375,1000,row,150;i=block/ifcard
+GC m 10 g 2621440 n out i 0 o 1
+GC m 11 g 1048576 n in i 0 o 0
+CC sm 10 sg 2621440 dm 11 dg 1048576
+GC m 11 g 2621440 n out i 0 o 1
+GC m 10 g 1048576 n in i 0 o 0
+CC sm 11 sg 2621440 dm 10 dg 1048576
+GC m 11 g 2621441 n out i 1 o 1
+GC m 12 g 1048576 n in i 0 o 0
+CC sm 11 sg 2621441 dm 12 dg 1048576
+GC m 12 g 2621440 n out i 0 o 1
+GC m 11 g 1048577 n in i 1 o 0
+CC sm 12 sg 2621440 dm 11 dg 1048577
+CC sm 2 sg 1048576 dm 14 dg 4
+CDC sm 2 sg 1048576 d m=s
+GC m 12 g 2621441 n out i 1 o 1
+CC sm 12 sg 2621441 dm 13 dg 0
+GC m 12 g 1048577 n in i 1 o 0
+CC sm 13 sg 3 dm 12 dg 1048577
+GC m 12 g 1048578 n in i 2 o 0
+CC sm 14 sg 3 dm 12 dg 1048578
+GC m 12 g 2621442 n out i 2 o 1
+CC sm 12 sg 2621442 dm 14 dg 0
+MC id 16 c inet::Ipv4NetworkLayer t inet.networklayer.ipv4.Ipv4NetworkLayer pid 2 n ipv4 cm 1
+GC m 16 g 0 n ifIn o 0
+GC m 16 g 3 n ifOut o 1
+GC m 16 g 4 n transportIn o 0
+GC m 16 g 7 n transportOut o 1
+MDC id 16 d q=queue;p=375,375;i=block/fork
+MC id 17 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n nl
+MDC id 17 d p=750,450;b=1000,5,,,,1
+GC m 17 g 2621440 n out i 0 o 1
+CC sm 17 sg 2621440 dm 16 dg 0
+GC m 17 g 1048576 n in i 0 o 0
+CC sm 16 sg 3 dm 17 dg 1048576
+GC m 10 g 2621441 n out i 1 o 1
+GC m 17 g 1048577 n in i 1 o 0
+CC sm 10 sg 2621441 dm 17 dg 1048577
+GC m 17 g 2621441 n out i 1 o 1
+GC m 10 g 1048577 n in i 1 o 0
+CC sm 17 sg 2621441 dm 10 dg 1048577
+MC id 18 c inet::Udp t inet.transportlayer.udp.Udp pid 2 n udp
+GC m 18 g 0 n appIn o 0
+GC m 18 g 2 n ipIn o 0
+GC m 18 g 5 n appOut o 1
+GC m 18 g 7 n ipOut o 1
+MDC id 18 d p=375,225;i=block/transport
+MC id 19 c inet::tcp::Tcp t inet.transportlayer.tcp.Tcp pid 2 n tcp
+GC m 19 g 0 n appIn o 0
+GC m 19 g 2 n ipIn o 0
+GC m 19 g 5 n appOut o 1
+GC m 19 g 7 n ipOut o 1
+MDC id 19 d p=525,225;i=block/wheelbarrow
+MC id 20 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n tn
+MDC id 20 d p=750,300;b=1000,5,,,,1
+GC m 20 g 1048576 n in i 0 o 0
+CC sm 18 sg 7 dm 20 dg 1048576
+GC m 20 g 2621440 n out i 0 o 1
+CC sm 20 sg 2621440 dm 18 dg 2
+GC m 20 g 1048577 n in i 1 o 0
+CC sm 19 sg 7 dm 20 dg 1048577
+GC m 20 g 2621441 n out i 1 o 1
+CC sm 20 sg 2621441 dm 19 dg 2
+GC m 20 g 2621442 n out i 2 o 1
+CC sm 20 sg 2621442 dm 16 dg 4
+GC m 20 g 1048578 n in i 2 o 0
+CC sm 16 sg 7 dm 20 dg 1048578
+GC m 20 g 2621443 n out i 3 o 1
+GC m 17 g 1048578 n in i 2 o 0
+CC sm 20 sg 2621443 dm 17 dg 1048578
+GC m 17 g 2621442 n out i 2 o 1
+GC m 20 g 1048579 n in i 3 o 0
+CC sm 17 sg 2621442 dm 20 dg 1048579
+MC id 21 c inet::UdpBasicApp t inet.applications.udpapp.UdpBasicApp pid 2 n app[0]
+GC m 21 g 0 n socketIn o 0
+GC m 21 g 3 n socketOut o 1
+MDC id 21 d p=375,75,row,150;i=block/app
+MC id 22 c inet::MessageDispatcher t inet.common.MessageDispatcher pid 2 n at
+MDC id 22 d p=750,150;b=1000,5,,,,1
+GC m 22 g 1048576 n in i 0 o 0
+CC sm 21 sg 3 dm 22 dg 1048576
+GC m 22 g 2621440 n out i 0 o 1
+CC sm 22 sg 2621440 dm 21 dg 0
+GC m 22 g 2621441 n out i 1 o 1
+CC sm 22 sg 2621441 dm 18 dg 0
+GC m 22 g 1048577 n in i 1 o 0
+CC sm 18 sg 5 dm 22 dg 1048577
+GC m 22 g 2621442 n out i 2 o 1
+CC sm 22 sg 2621442 dm 19 dg 0
+GC m 22 g 1048578 n in i 2 o 0
+CC sm 19 sg 5 dm 22 dg 1048578
+GC m 22 g 2621443 n out i 3 o 1
+GC m 20 g 1048580 n in i 4 o 0
+CC sm 22 sg 2621443 dm 20 dg 1048580
+GC m 20 g 2621444 n out i 4 o 1
+GC m 22 g 1048579 n in i 3 o 0
+CC sm 20 sg 2621444 dm 22 dg 1048579
+MC id 23 c inet::Loopback t inet.linklayer.loopback.Loopback pid 13 n lo
+GC m 23 g 0 n upperLayerIn o 0
+GC m 23 g 3 n upperLayerOut o 1
+MDC id 23 d p=300,100;i=block/rxtx
+CC sm 13 sg 0 dm 23 dg 0
+CDC sm 13 sg 0 d m=n
+CC sm 23 sg 3 dm 13 dg 3
+CDC sm 23 sg 3 d m=n
+MC id 26 c inet::queueing::PacketQueue t inet.queueing.queue.DropTailQueue pid 14 n queue
+GC m 26 g 0 n in o 0
+GC m 26 g 3 n out o 1
+MDC id 26 d q=l2queue;p=200,100;i=block/queue
+MC id 27 c inet::AckingMac t inet.linklayer.acking.AckingMac pid 14 n mac
+GC m 27 g 0 n upperLayerIn o 0
+GC m 27 g 3 n upperLayerOut o 1
+GC m 27 g 4 n lowerLayerIn o 0
+GC m 27 g 7 n lowerLayerOut o 1
+MDC id 27 d p=300,100;i=block/rxtx
+MC id 28 c inet::physicallayer::ApskRadio t inet.physicallayer.wireless.apsk.packetlevel.ApskDimensionalRadio pid 14 n radio
+GC m 28 g 0 n upperLayerIn o 0
+GC m 28 g 3 n upperLayerOut o 1
+GC m 28 g 4 n radioIn o 0
+MDC id 28 d p=300,200;i=block/wrxtx
+CC sm 14 sg 0 dm 26 dg 0
+CDC sm 14 sg 0 d m=n
+CC sm 26 sg 3 dm 27 dg 0
+CC sm 27 sg 7 dm 28 dg 0
+CC sm 14 sg 4 dm 28 dg 4
+CDC sm 14 sg 4 d m=s
+CC sm 28 sg 3 dm 27 dg 4
+CC sm 27 sg 3 dm 14 dg 3
+CDC sm 27 sg 3 d m=n
+MC id 32 c inet::physicallayer::IsotropicAntenna t inet.physicallayer.wireless.common.antenna.IsotropicAntenna pid 28 n antenna cm 1
+MDC id 32 d p=100,100;i=device/antennatower
+
+SE e 0 c -1 m ""
